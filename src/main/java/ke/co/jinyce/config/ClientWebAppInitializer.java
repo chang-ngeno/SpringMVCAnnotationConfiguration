@@ -12,14 +12,16 @@ public class ClientWebAppInitializer implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		
+
 		AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
-	       webContext.register(DatabaseConfig.class);
-	       webContext.register(ClientWebMVCConfig.class);
-	       webContext.setServletContext(servletContext);
-	       ServletRegistration.Dynamic reg=servletContext.addServlet("dispatcherServlet", new DispatcherServlet(webContext));
-	       reg.setLoadOnStartup(1);
-	       reg.addMapping("*.action");
+		webContext.register(DatabaseConfig.class);
+		webContext.register(ClientWebMVCConfig.class);
+		webContext.setServletContext(servletContext);
+		ServletRegistration.Dynamic reg = servletContext.addServlet("gnyce",
+				new DispatcherServlet(webContext));
+		reg.setLoadOnStartup(1);
+		reg.addMapping("*.action");
+		reg.addMapping("/");
 
 	}
 

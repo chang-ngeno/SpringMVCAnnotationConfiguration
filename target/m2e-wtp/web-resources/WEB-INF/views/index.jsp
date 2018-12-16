@@ -12,7 +12,9 @@
 	<div class="container-fluid">
 		<%@ include file="common/header.jsp"%>
 		<br />
-		<form class="form form-responsive" action="welcome.jsp">
+		<hr/>
+		<%-- <%@ include file="/WEB-INF/resources/public/css/styles.css" %> --%>
+		<form class="form form-responsive" action="welcome">
 			<input type="text" name="uname"> <input type="submit"
 				value="go"><br />
 		</form>
